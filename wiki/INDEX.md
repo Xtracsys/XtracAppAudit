@@ -1,6 +1,6 @@
 # Xtracsys App Audit Wiki — Wiki Index
 
-> Updated 2026-11-02 · 66 documented files · data: `wiki_data.json`
+> Updated 2026-11-03 · 66 documented files · data: `wiki_data.json`
 
 ## Open the wiki
 
@@ -10,7 +10,6 @@ Open `index.html` in a browser. The page works offline.
 
 - **Overview** — product scope and operating boundaries.
 - **User Guide** — task-based instructions and interactive workflow diagrams.
-- **Release Readiness** — release review findings, verification ledger, and functional requirements.
 - **File System** — documented project files grouped by folder.
 
 ## Update the wiki

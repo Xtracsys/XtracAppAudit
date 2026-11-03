@@ -2,6 +2,8 @@
 
 Native read-only macOS application inventory, audit snapshots and version review. Requires **macOS 14.4+**; included build is **Apple Silicon**. No administrator access or third-party dependencies.
 
+Designed to make evidence reviewable: inspect installed apps without launching them, save and compare audit snapshots, and control online checks separately from Bonjour device discovery. Discovery is optional and limited to supported service announcements; it does not probe the subnet. [Read the Xtracsys orchestration playbook](https://github.com/Xtracsys/Xtracsys/blob/main/docs/ORCHESTRATION_GUIDE.md) for the planning and review workflow behind this project.
+
 ## Xtracsys identity
 
 The supplied Xtracsys artwork appears in the app icon, inventory header, native About panel, standalone HTML and PDF reports. Rust `#B24630`, black and warm white `#F7F6F2` follow the supplied brand reference. Native controls retain system appearance and semantic status colours. The original artwork is preserved in `Sources/AuditCore/Resources/XtracsysLogo.png`; `Branding/AppIcon.icns` contains the macOS icon. Logo data is embedded locally in reports; no remote branding requests are made.

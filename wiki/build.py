@@ -198,7 +198,6 @@ def main():
         "", "## Tabs", "",
         "- **Overview** — product scope and operating boundaries.",
         "- **User Guide** — task-based instructions and interactive workflow diagrams.",
-        "- **Release Readiness** — release review findings, verification ledger, and functional requirements.",
         "- **File System** — documented project files grouped by folder.",
         "", "## Update the wiki", "",
         "1. Edit `wiki_data.json`, the canonical content file. Guide and overview tabs live in `tabs`; file records live inside the File System tab's `files` list.",
