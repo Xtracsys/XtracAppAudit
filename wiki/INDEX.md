@@ -37,7 +37,7 @@ Open `index.html` in a browser. The page works offline.
 | 09 | VERIFICATION.md | `VERIFICATION.md` | 161 | SPEC |
 | 10 | AppIcon.icns | `Branding/AppIcon.icns` | — | SPEC |
 | 11 | README.md | `Branding/README.md` | 7 | SPEC |
-| 12 | GITHUB_RELEASE.md | `docs/GITHUB_RELEASE.md` | 43 | SPEC |
+| 12 | GITHUB_RELEASE.md | `docs/GITHUB_RELEASE.md` | 46 | SPEC |
 | 13 | INSTALL.md | `docs/INSTALL.md` | 20 | SPEC |
 | 14 | RELEASE_NOTES_1.5.1.md | `docs/RELEASE_NOTES_1.5.1.md` | 23 | SPEC |
 | 15 | fictional-audit.json | `examples/fictional-audit.json` | 54 | SAMPLE |

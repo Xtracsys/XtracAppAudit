@@ -126,7 +126,7 @@ Data and HTML history live under `~/Library/Application Support/App Audit/Monito
 
 Code and documentation use **Apache-2.0**, with artwork governed separately by [brand terms](BRAND_TERMS.md). Read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) and [PRIVACY.md](PRIVACY.md). A macOS test/build workflow, issue/PR templates and a fictional sample audit are included.
 
-This source is prepared for the public **Xtracsys/XtracAppAudit** GitHub repository under Apache-2.0. Use this AppAudit directory as the repository root and follow [publication preparation](docs/GITHUB_RELEASE.md). Security reports can be sent to the contact in [SECURITY.md](SECURITY.md); GitHub Private Vulnerability Reporting is optional. Check the configured CI workflow after the first push; the local binary remains ad-hoc signed. `dist/SHA256SUMS` contains the versioned archive checksum.
+The public source repository is [Xtracsys/XtracAppAudit](https://github.com/Xtracsys/XtracAppAudit) under Apache-2.0. Use this AppAudit directory as the repository root and follow [publication and maintenance](docs/GITHUB_RELEASE.md). Security reports can be sent to the contact in [SECURITY.md](SECURITY.md); GitHub Private Vulnerability Reporting is optional. The [macOS checks](https://github.com/Xtracsys/XtracAppAudit/actions/workflows/macos.yml) run on pushes. The local binary remains ad-hoc signed. `dist/SHA256SUMS` contains the versioned archive checksum.
 
 ## Build and verification
 

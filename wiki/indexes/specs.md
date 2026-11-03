@@ -12,7 +12,7 @@
 - **VERIFICATION.md** — `VERIFICATION.md` (161 lines): Preserves dated build, test, routing, and release-check records. Treat each result as evidence for the date and code state recorded there.
 - **AppIcon.icns** — `Branding/AppIcon.icns` (— lines): Provides the packaged App Audit icon used by the macOS application bundle.
 - **README.md** — `Branding/README.md` (7 lines): Records the supplied artwork source, preserved original logo path, and the separate brand-terms file.
-- **GITHUB_RELEASE.md** — `docs/GITHUB_RELEASE.md` (43 lines): Defines the standalone AppAudit folder as the future repository root, names the source and binary artifacts, and documents the draft-release and signing/notarization sequence.
+- **GITHUB_RELEASE.md** — `docs/GITHUB_RELEASE.md` (46 lines): Defines the standalone AppAudit folder as the future repository root, names the source and binary artifacts, and documents the draft-release and signing/notarization sequence.
 - **INSTALL.md** — `docs/INSTALL.md` (20 lines): Explains Apple Silicon installation, checksum limits, ad-hoc signature expectations, local data behavior, rollback, and a focused acceptance check.
 - **RELEASE_NOTES_1.5.1.md** — `docs/RELEASE_NOTES_1.5.1.md` (23 lines): Summarizes the user-facing changes and constraints recorded for the current app build.
 - **fictional-audit.json** — `examples/fictional-audit.json` (54 lines): Provides fictional sample snapshot data for exercising decode, comparison, and report flows without using a real machine inventory.
