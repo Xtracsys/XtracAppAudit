@@ -18,6 +18,6 @@ The binary is ad-hoc signed. It is not Developer ID signed or notarized. Intel a
 
 ## Verification and remaining checks
 
-Local suite and release archive/signature checks are recorded in VERIFICATION.md. Live sorting was verified on the development Mac. Testing on a separate Mac and the first GitHub Actions run remain release-owner tasks. Do not describe those checks as complete until they pass.
+Local suite and release archive/signature checks are recorded in VERIFICATION.md. The current GitHub Actions run passed. Live sorting was verified on the development Mac. Testing on a separate Mac remains pending and is not claimed here.
 
 Signature, Gatekeeper, notarization and update status are separate observations. Unknown is not a clean verdict. Review PRIVACY.md and SECURITY.md before sharing audit exports.
