@@ -2,7 +2,7 @@
 
 **Current repository:** [Xtracsys/XtracAppAudit](https://github.com/Xtracsys/XtracAppAudit), public, Apache-2.0. The initial `main` commit (`f709839`) was published on 2026-11-02. No release tag or binary release has been published.
 
-The first GitHub Actions run failed because Git recorded `scripts/build.sh` without its executable bit. The fixture tests and source-package boundary check passed before that step. A follow-up commit corrects the file mode; check the [macOS checks](https://github.com/Xtracsys/XtracAppAudit/actions/workflows/macos.yml) for its result.
+The first GitHub Actions run failed because Git recorded `scripts/build.sh` without its executable bit. Commit `7d953c3` corrects the mode to `100755`; [run #2 passed](https://github.com/Xtracsys/XtracAppAudit/actions/runs/41583360704), including tests, source packaging, app build, archive/signature verification and artifact upload. Future pushes run the same [macOS checks](https://github.com/Xtracsys/XtracAppAudit/actions/workflows/macos.yml).
 
 Use only the prepared AppAudit source folder as the repository root, never the enclosing multi-project workspace. The source ZIP contains this same standalone folder, including hidden .github and .gitignore files and the offline project wiki in `wiki/`. Generated binaries, real exports, user settings and build directories are excluded.
 
