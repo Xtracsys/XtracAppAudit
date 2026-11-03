@@ -1,0 +1,12 @@
+# Tests
+*verification*
+
+- **AuditUpgradeTests.swift** — `Tests/AuditCoreTests/AuditUpgradeTests.swift` (125 lines): Covers snapshot round trips and unsupported schemas, comparison identity edge cases, preferences corruption fallback, publisher identity, receipt parsing, and Mach-O architecture parsing.
+- **CommunityTests.swift** — `Tests/AuditCoreTests/CommunityTests.swift` (57 lines): Covers HTTPS link validation, legacy settings loading, identity-based duplicate grouping, redaction boundaries, mixed-case URL stripping, and optional cask homepage metadata.
+- **CoreTests.swift** — `Tests/AuditCoreTests/CoreTests.swift` (174 lines): Covers conservative version comparison, nested app discovery, malformed helpers, hidden and linked apps, loop prevention, special-file and metadata limits, cancellation coverage, filesystem defaults,
+- **MonitoringTests.swift** — `Tests/AuditCoreTests/MonitoringTests.swift` (178 lines): Covers streaming hashes, same-version integrity changes, policy findings, registry validation, alert deduplication, incomplete scope, launch-agent arguments and time, install rollback status, and repo
+- **NotarizationTests.swift** — `Tests/AuditCoreTests/NotarizationTests.swift` (24 lines): Checks that accepted evidence sources remain distinct, failures and unrecognized sources never confirm trust, and hidden evidence columns plus legacy preferences load safely.
+- **RoutingTests.swift** — `Tests/AuditCoreTests/RoutingTests.swift` (66 lines): Checks managed-path boundary rules, no namespace-only Apple trust shortcut, Store and OS feed bypass, removal of false legacy catalog matches, manual coverage grouping, and classification persistence.
+- **TableRowTests.swift** — `Tests/AuditCoreTests/TableRowTests.swift` (29 lines): Checks evidence-column ordering in both directions and ensures displayed age dates and architecture values drive the corresponding sort keys.
+- **WorkflowTests.swift** — `Tests/AuditCoreTests/WorkflowTests.swift` (118 lines): Covers exception precedence and expiry boundaries, age calculation, evidence-bound exceptions, offline behavior, receipt-date precedence, monitor network restrictions, saved context, and redacted note
+- **test_package_source.py** — `Tests/test_package_source.py` (86 lines): Uses temporary project copies to check that internal plan notes stay out of the ZIP and that external symlinks are rejected before an archive can be left behind.

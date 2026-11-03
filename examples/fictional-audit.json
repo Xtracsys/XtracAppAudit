@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 2,
+  "captured": "2026-01-01T12:00:00Z",
+  "roots": [
+    "/Applications",
+    "/Example/Apps"
+  ],
+  "warnings": [],
+  "apps": [
+    {
+      "name": "Fictional Editor",
+      "path": "/Applications/Fictional Editor.app",
+      "bundleID": "org.example.fictional-editor",
+      "version": "1.0",
+      "build": "1",
+      "appStore": false,
+      "modified": "2025-12-20T12:00:00Z"
+    },
+    {
+      "name": "Fictional Editor",
+      "path": "/Example/Apps/Fictional Editor.app",
+      "bundleID": "org.example.fictional-editor",
+      "version": "0.9",
+      "build": "9",
+      "appStore": false,
+      "modified": "2025-09-01T12:00:00Z"
+    }
+  ],
+  "updates": {},
+  "evidence": {},
+  "developerLinks": {
+    "bundle:org.example.fictional-editor": {
+      "website": "https://example.org",
+      "support": "https://example.org/support",
+      "releaseNotes": "https://example.org/releases"
+    }
+  },
+  "context": {
+    "client": "Example Customer",
+    "site": "Example Office",
+    "auditor": "Example Auditor",
+    "notes": "Fictional demonstration; not a real customer audit."
+  },
+  "offlineMode": true,
+  "exceptions": {
+    "security-coverage": {
+      "fingerprint": "a275338ee227d4ac23c02caa2c25b663c34b6826fee8b407755a2d462dfb8812",
+      "reason": "Demonstration only: signing evidence deferred for this fictional inventory.",
+      "reviewer": "Example Auditor",
+      "recorded": "2025-12-31T12:00:00Z",
+      "expires": "2026-01-31T12:00:00Z"
+    }
+  }
+}

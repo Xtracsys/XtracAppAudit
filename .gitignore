@@ -1,0 +1,9 @@
+.build/
+dist/
+.archify/
+.DS_Store
+._*
+output/
+tmp/
+docs/*-plan.md
+docs/superpowers/

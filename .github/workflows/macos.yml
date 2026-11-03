@@ -1,0 +1,31 @@
+name: macOS checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test-build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Toolchain
+        run: swift --version
+      - name: Fixture tests
+        run: swift test --disable-sandbox --scratch-path /tmp/appaudit-ci-tests
+      - name: Source packager boundary test
+        run: python3 -m unittest discover -s Tests -p 'test_package_source.py'
+      - name: Build local app
+        run: ./scripts/build.sh
+      - name: Package public source
+        run: python3 scripts/package-source.py
+      - name: Verify archive and signature
+        run: |
+          codesign --verify --strict "dist/App Audit.app"
+          unzip -t dist/App-Audit-macOS-arm64.zip
+          (cd dist && shasum -a 256 -c SHA256SUMS)
+      - uses: actions/upload-artifact@v7
+        with:
+          name: App-Audit-macOS
+          path: |
+            dist/App-Audit-1.5.1-macOS-arm64.zip
+            dist/App-Audit-1.5.1-source.zip
+            dist/SHA256SUMS

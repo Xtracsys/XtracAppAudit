@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xtracsys App Audit Wiki</title>
+<style>
+:root{--bg:#fff;--surface:#f8f5eb;--text:#111;--muted:#5b5b57;--faint:#8a8a85;--line:rgba(17,17,17,.12);--line-2:rgba(17,17,17,.24);--red:#d92a2a;--on-accent:#fff;--wash:rgba(17,17,17,.05);--term-bg:#141414;--term-border:#2a2a2a;--term-head:#0e0e0e;--term-text:#f8f5eb;--term-shadow:rgba(17,17,17,.18);--maxw:1180px;--mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--sans);color:var(--text);background:var(--bg);font-size:17px;line-height:1.6;color-scheme:light}
+:root[data-theme="dark"]{--bg:#0a0a0a;--surface:#121212;--text:#f8f5eb;--muted:rgba(248,245,235,.56);--faint:rgba(248,245,235,.34);--line:rgba(248,245,235,.12);--line-2:rgba(248,245,235,.22);--red:#d92a2a;--on-accent:#0a0a0a;--wash:rgba(248,245,235,.06);--term-bg:#141414;--term-border:#2a2a2a;--term-head:#0e0e0e;--term-text:#f8f5eb;--term-shadow:rgba(0,0,0,.5);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 80px}
+
+header.hero{display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;padding:24px 28px;box-shadow:0 1px 3px var(--term-shadow)}
+.mark{width:64px;height:64px;border-radius:14px;background:#fff;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;overflow:hidden}
+.mark img{width:100%;height:100%;object-fit:contain}
+.mark-fallback{font-family:var(--mono);font-weight:800;font-size:20px;color:var(--text)}
+.hero-text h1{font-size:20px;font-weight:700;letter-spacing:-.2px}
+.hero-text p{color:var(--muted);font-size:14px;margin-top:2px}
+.hero-meta{margin-left:auto;text-align:right;font-size:12px;color:var(--muted);display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;font-family:var(--mono);font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);
+  background:var(--bg);padding:6px 12px}
+.theme-toggle{appearance:none;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--muted);background:var(--bg);border:1px solid var(--line);
+  padding:6px 12px;cursor:pointer}
+.theme-toggle:hover{color:var(--red);border-color:var(--red)}
+
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0}
+.tab{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  font-family:var(--sans);font-size:14px;font-weight:600;padding:9px 16px;border-radius:10px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+.tab:hover{color:var(--text);border-color:var(--line-2)}
+.tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab .ic{font-size:13px;opacity:.85}
+
+.panel{display:none;animation:fade .25s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.panel{animation:none}}
+
+section.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;box-shadow:0 1px 3px var(--term-shadow);margin-bottom:18px}
+section.card h2{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+section.card h2::before{content:"";width:4px;height:16px;background:var(--red);border-radius:2px;flex:0 0 auto}
+section.card p{font-size:14.5px;color:var(--text);margin:0 0 .7em}
+section.card p:last-child{margin-bottom:0}
+a{color:var(--red)} a:hover{text-decoration:underline}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-family:var(--mono);font-weight:700;color:var(--muted);text-transform:uppercase;
+  font-size:11px;letter-spacing:.5px;padding:8px 12px;border-bottom:2px solid var(--line-2)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--wash)}
+code,td code{font-family:var(--mono);font-size:12.5px;background:var(--wash);padding:1px 5px;
+  border-radius:5px;color:var(--red)}
+td:first-child{font-family:var(--mono);font-size:12.5px}
+
+pre.diagram{background:var(--term-bg);color:var(--term-text);border:1px solid var(--term-border);
+  border-radius:12px;padding:20px;overflow:auto;font-family:var(--mono);font-size:12px;line-height:1.45}
+
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 18px 44px;border-left:2px solid var(--line);margin-left:14px}
+ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+ol.steps li::before{content:counter(s);position:absolute;left:-15px;top:-2px;width:28px;height:28px;
+  background:var(--red);color:var(--on-accent);border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:700}
+ol.steps .st-title{font-weight:600;font-size:14.5px}
+ol.steps .st-detail{font-size:13.5px;color:var(--muted);margin-top:3px}
+.archify-frame{overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.archify-frame iframe{display:block;width:100%;height:720px;border:0;background:var(--bg)}
+.archify-open{font-size:13px;margin-top:10px!important}
+@media(max-width:700px){.archify-frame iframe{height:600px}}
+
+footer{background:var(--term-head);border-top:3px solid var(--red);color:var(--term-text);
+  padding:20px 0;font-size:12px}
+footer .wrap{padding-top:0;padding-bottom:0}
+.err{background:var(--wash);color:var(--red);padding:16px;border-radius:10px;font-size:14px}
+.tab:focus-visible,.theme-toggle:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="mark" id="mark" aria-hidden="true"></div>
+    <div class="hero-text">
+      <h1 id="m-title">Xtracsys App Audit Wiki</h1>
+      <p id="m-sub">Offline reference for the app, audit engine, tests, and project workflow</p>
+    </div>
+    <div class="hero-meta">
+      <span class="eyebrow" id="m-ver">v1.5.1</span>
+      <span id="m-date">2026-11-01</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">◐ THEME</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Wiki sections"></nav>
+  <main id="content"><div class="err">Loading…</div></main>
+</div>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script id="wiki-data" type="application/json">__WIKI_DATA__</script>
+<script>
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const RICH = /(https?:\/\/[^\s<>()"]+[^\s<>().,;:"]|`[^`]+`|(?:[A-Za-z0-9_.\-]+\/)*[A-Za-z0-9_.\-]+\.(?:py|go|js|ts|tsx|jsx|md|json|html|css|sh|gd|tscn|toml|ya?ml|cfg|txt|rs|java|c|cpp|h|rb|php)(?![A-Za-z0-9_.\-]))/g;
+function rich(s){
+  return esc(s).replace(RICH, m => {
+    if (m.startsWith('http')) return '<a href="'+m+'" target="_blank" rel="noopener">'+m+'</a>';
+    if (m.startsWith('`')) return '<code>'+m.slice(1,-1)+'</code>';
+    return '<code>'+m+'</code>';
+  });
+}
+
+function renderSection(sec){
+  let h = '<section class="card">';
+  if (sec.heading) h += `<h2>${esc(sec.heading)}</h2>`;
+  if (sec.type === 'prose'){
+    h += String(sec.body ?? '').split(/\n\n+/).map(p => `<p>${rich(p)}</p>`).join('');
+  } else if (sec.type === 'diagram'){
+    h += `<pre class="diagram">${esc(sec.body)}</pre>`;
+  } else if (sec.type === 'table'){
+    h += '<table><thead><tr>' + (sec.columns||[]).map(c=>`<th>${esc(c)}</th>`).join('') + '</tr></thead><tbody>';
+    h += (sec.rows||[]).map(r=>'<tr>'+r.map(cell=>`<td>${rich(cell)}</td>`).join('')+'</tr>').join('');
+    h += '</tbody></table>';
+  } else if (sec.type === 'steps'){
+    h += '<ol class="steps">' + (sec.items||[]).map(it=>
+      `<li><div class="st-title">${rich(it.title)}</div><div class="st-detail">${rich(it.detail)}</div></li>`).join('') + '</ol>';
+  } else if (sec.type === 'archify'){
+    const href = String(sec.href || '');
+    if (/^diagrams\/[a-z0-9-]+\.html$/.test(href)){
+      const title = esc(sec.title || sec.heading || 'Interactive diagram').replace(/"/g,'&quot;');
+      if (sec.note) h += `<p>${rich(sec.note)}</p>`;
+      h += `<div class="archify-frame"><iframe src="${href}" title="${title}" loading="lazy"></iframe></div>`;
+      h += `<p class="archify-open"><a href="${href}" target="_blank" rel="noopener">Open interactive diagram in a new tab ↗</a></p>`;
+    } else {
+      h += '<p>Diagram file is unavailable.</p>';
+    }
+  }
+  return h + '</section>';
+}
+
+function applyTheme(theme){
+  const root = document.documentElement;
+  root.dataset.theme = theme;
+  document.body.style.backgroundColor = theme==='dark' ? '#0a0a0a' : '#fff';
+}
+
+function build(data){
+  const meta = data.meta || {};
+  document.getElementById('m-title').textContent = meta.title || 'Code Wiki';
+  document.getElementById('m-sub').textContent = meta.subtitle || '';
+  document.getElementById('m-ver').textContent = 'v' + (meta.version || '');
+  document.getElementById('m-date').textContent = meta.date || '';
+  document.title = meta.title || 'Code Wiki';
+  const logo = meta.logo || '';
+  document.getElementById('mark').innerHTML = logo
+    ? `<img src="${logo}" alt="logo">` : '<span class="mark-fallback">X</span>';
+  const sources = (meta.sources || []);
+  const srcLine = sources.length > 8
+    ? sources.slice(0,8).join('  •  ') + `  •  +${sources.length-8} more`
+    : sources.join('  •  ');
+  document.getElementById('foot').textContent =
+    (srcLine ? 'Sources: ' + srcLine + '  —  ' : '') + (meta.date || '') +
+    `  ·  Edit ${meta.data_file || 'wiki_data.json'} then run python3 wiki/build.py`;
+
+  const tabsEl = document.getElementById('tabs');
+  const contentEl = document.getElementById('content');
+  tabsEl.innerHTML = '';
+  contentEl.innerHTML = '';
+  const storeKey = 'wiki-tab:' + (meta.title || 'default');
+  const saved = localStorage.getItem(storeKey);
+
+  (data.tabs || []).forEach((tab)=>{
+    const btn = document.createElement('button');
+    btn.className = 'tab';
+    btn.type = 'button';
+    btn.innerHTML = `<span class="ic">${esc(tab.icon||'')}</span>${esc(tab.label)}`;
+    btn.dataset.id = tab.id;
+    tabsEl.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.id = 'panel-' + tab.id;
+    panel.innerHTML = (tab.sections || []).map(renderSection).join('');
+    contentEl.appendChild(panel);
+
+    btn.addEventListener('click', ()=>activate(tab.id));
+  });
+
+  if (!(data.tabs || []).length){
+    contentEl.innerHTML = `<div class="err">No tabs in ${meta.data_file || 'wiki_data.json'}</div>`;
+    return;
+  }
+  const start = (saved && data.tabs.some(t=>t.id===saved)) ? saved : data.tabs[0].id;
+  activate(start);
+}
+
+function activate(id){
+  document.querySelectorAll('.tab').forEach(b=>{
+    const on = b.dataset.id===id;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', String(on));
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+id));
+  const meta = (window.__WIKI_META__ || {});
+  localStorage.setItem('wiki-tab:' + (meta.title || 'default'), id);
+}
+
+(function(){
+  const savedTheme = localStorage.getItem('wiki-theme');
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+  const toggle = document.getElementById('theme-toggle');
+  toggle.addEventListener('click', ()=>{
+    const next = document.documentElement.dataset.theme==='dark' ? 'light' : 'dark';
+    localStorage.setItem('wiki-theme', next);
+    applyTheme(next);
+  });
+  let data = null;
+  try{
+    const node = document.getElementById('wiki-data');
+    if (node && node.textContent.trim()){
+      const parsed = JSON.parse(node.textContent.replace(/<\\\//g, '</'));
+      if (parsed.tabs && parsed.tabs.length) data = parsed;
+    }
+  }catch(e){ /* fall through to fetch */ }
+  if (data){ window.__WIKI_META__ = data.meta; build(data); return; }
+  fetch("wiki_data.json")
+    .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d=>{ window.__WIKI_META__ = d.meta; build(d); })
+    .catch(e=>{
+      document.getElementById('content').innerHTML =
+        `<div class="err"><strong>Could not load data.</strong><br>${esc(e.message)}</div>`;
+    });
+})();
+</script>
+</body>
+</html>
