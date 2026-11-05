@@ -14,4 +14,4 @@ Describe the user-visible problem, change and relevant verification. Keep change
 
 Do not attach real inventories or unreviewed logs. Use fictional fixtures or the redacted export option, then review the result manually. Contributions are submitted under Apache-2.0; see LICENSE. Xtracsys artwork has separate terms in BRAND_TERMS.md.
 
-For project or contribution questions, contact opensource@xtracsys.com.
+For project or contribution questions, contact josh@xtracsys.com.

@@ -28,10 +28,10 @@ git commit -m "Describe the change"
 git push origin main
 ```
 
-Configure your chosen author name and the designated `opensource@xtracsys.com` email. Do not commit dist, output, tmp, `.archify`, `.build` or real inventories. Keep this folder as the standalone checkout for future changes; changes made in the enclosing workspace are not synchronized automatically.
+Configure your chosen author name and the designated `josh@xtracsys.com` email. Do not commit dist, output, tmp, `.archify`, `.build` or real inventories. Keep this folder as the standalone checkout for future changes; changes made in the enclosing workspace are not synchronized automatically.
 
 4. Review the **macOS checks** result after each push. The workflow tests, builds and verifies the archive/signature/checksums. Its app artifact is ad-hoc signed and not notarized. Branch rules can require this check after it runs successfully; branch protection is optional.
-5. The maintainer contact is **opensource@xtracsys.com**. Researchers can send reports there privately. GitHub Private Vulnerability Reporting is an optional way to accept structured reports; it is not a repository publication prerequisite. Review artwork terms as owner.
+5. The maintainer contact is **josh@xtracsys.com**. Researchers can send reports there privately. GitHub Private Vulnerability Reporting is an optional way to accept structured reports; it is not a repository publication prerequisite. Review artwork terms as owner.
 6. For a binary release, complete any desired second-Mac acceptance check and use GitHub **Releases → Draft a new release**. Create tag `v1.5.1` against the intended main commit. Use docs/RELEASE_NOTES_1.5.1.md as the description and attach the two versioned ZIPs and SHA256SUMS. Publish when the draft is correct. Do not attach the entire workspace or a real audit export. Avoid mixing locally generated checksums with different CI-built archives. The source repository may be published independently of a binary release.
 
 For GitHub Desktop updates, open this existing `XtracAppAudit` repository, commit the reviewed changes, then choose **Push origin**. The remote is already configured; do not create a second repository. For a fresh clone, use `https://github.com/Xtracsys/XtracAppAudit.git`.

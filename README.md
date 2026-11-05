@@ -197,4 +197,4 @@ See [LAN installation](docs/INSTALL.md), [release notes](docs/RELEASE_NOTES_1.5.
 
 ## Contact
 
-For GitHub project and security inquiries, contact **opensource@xtracsys.com**. Send vulnerability reports privately by email or through GitHub Security when private reporting is enabled; do not post exploit details in a public issue.
+For GitHub project and security inquiries, contact **josh@xtracsys.com**. Send vulnerability reports privately by email or through GitHub Security when private reporting is enabled; do not post exploit details in a public issue.
